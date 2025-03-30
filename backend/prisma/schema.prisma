@@ -1,0 +1,214 @@
+generator client {
+  provider = "prisma-client-js"
+  seed = "ts-node prisma/seed.ts"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Model untuk Provinsi
+model Province {
+  id        String     @id @default(uuid())
+  name      String
+  cities    City[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  Person Person[]
+}
+
+// Model untuk Kabupaten/Kota
+model City {
+  id         String   @id @default(uuid())
+  name       String
+  provinceId String
+  province   Province @relation(fields: [provinceId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([provinceId])
+  Person Person[]
+}
+
+// User model untuk autentikasi dan role
+model User {
+  id                String           @id @default(uuid())
+  username          String           @unique
+  email             String?          @unique
+  password          String
+  role              Role             @default(MEMBER)
+  isActive          Boolean          @default(true)
+  lastLogin         DateTime?
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+  person            Person?          // Link ke data personal
+  notifications     Notification[]
+  createdPersons    Person[]         @relation("CreatedBy")
+  updatedPersons    Person[]         @relation("UpdatedBy")
+  deletedPersons    Person[]         @relation("DeletedBy")
+}
+
+
+// Model utama untuk data personal
+model Person {
+  id                String           @id @default(uuid())
+  titlePrefix       String?          // Gelar depan
+  fullName          String
+  titleSuffix       String?          // Gelar belakang
+  gender            Gender?
+  birthPlace        String?
+  birthDate         DateTime?
+  deathPlace        String?
+  deathDate         DateTime?
+  status            PersonStatus     @default(ALIVE)
+  address           String?
+  phone             String?
+  maritalStatus     MaritalStatus    @default(SINGLE)
+  story             String?          @db.Text
+  photos            Photo[]
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+  provinceId        String?
+  province          Province?        @relation(fields: [provinceId], references: [id])
+  cityId     String?
+  city       City?     @relation(fields: [cityId], references: [id])
+  isBani            Boolean          @default(false)    
+  familyRole        FamilyRole       @default(MEMBER)   
+  familyHead        Person?          @relation("FamilyMembers", fields: [familyHeadId], references: [id])  
+  familyHeadId      String?          
+  familyMembers     Person[]         @relation("FamilyMembers")    
+
+  @@index([provinceId])
+  @@index([cityId])
+  
+
+  
+  // Relationships
+  parentId          String?          // Parent in family tree
+  parent            Person?          @relation("FamilyTree", fields: [parentId], references: [id])
+  children          Person[]         @relation("FamilyTree")
+  
+  // Spouse relationship
+  spouseId          String?          // Current spouse
+  spouse            Person?          @relation("Marriage", fields: [spouseId], references: [id])
+  spouseOf          Person[]         @relation("Marriage")
+  
+  // Previous marriages
+  previousMarriages PreviousMarriage[]
+  
+  // User relationships
+  userId            String?          @unique // Connected user account
+  user              User?            @relation(fields: [userId], references: [id])
+  createdById       String
+  createdBy         User             @relation("CreatedBy", fields: [createdById], references: [id])
+  updatedById       String
+  updatedBy         User             @relation("UpdatedBy", fields: [updatedById], references: [id])
+  deletedById       String?
+  deletedBy         User?            @relation("DeletedBy", fields: [deletedById], references: [id])
+  deletedAt         DateTime?
+  
+  // Bani relationship
+  baniId            String
+  bani              Bani             @relation(fields: [baniId], references: [id])
+}
+
+// Model untuk Bani/Keluarga Besar
+model Bani {
+  id                String           @id @default(uuid())
+  name              String           @unique
+  description       String?          @db.Text
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+  members           Person[]
+  events            Event[]
+  photos            Photo[]
+}
+
+// Model untuk Event Keluarga
+model Event {
+  id                String           @id @default(uuid())
+  title             String
+  description       String?          @db.Text
+  startDate         DateTime
+  endDate           DateTime?
+  location          String?
+  baniId            String
+  bani              Bani             @relation(fields: [baniId], references: [id])
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+}
+
+// Model untuk Foto
+model Photo {
+  id                String           @id @default(uuid())
+  url               String
+  caption           String?
+  personId          String?
+  person            Person?          @relation(fields: [personId], references: [id])
+  baniId            String?
+  bani              Bani?            @relation(fields: [baniId], references: [id])
+  createdAt         DateTime         @default(now())
+}
+
+// Model untuk Notifikasi
+model Notification {
+  id                String           @id @default(uuid())
+  title             String
+  message           String
+  isRead            Boolean          @default(false)
+  userId            String
+  user              User             @relation(fields: [userId], references: [id])
+  createdAt         DateTime         @default(now())
+}
+
+// Model untuk Previous Marriage
+model PreviousMarriage {
+  id                String           @id @default(uuid())
+  personId          String
+  person            Person           @relation(fields: [personId], references: [id])
+  spouseName        String
+  marriageDate      DateTime?
+  divorceDate       DateTime?
+  isDivorced        Boolean          @default(false)
+  isSpouseDeceased  Boolean          @default(false)
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+}
+
+enum Role {
+  SUPER_ADMIN  @map("1")
+  ADMIN_BANI   @map("2")
+  ADMIN_KELUARGA @map("3")
+  MEMBER       @map("4")
+  GUEST        @map("5")
+
+  @@map("role")
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum PersonStatus {
+  ALIVE
+  DECEASED
+}
+
+enum MaritalStatus {
+  SINGLE
+  MARRIED
+  DIVORCED
+  WIDOWED
+  REMARRIED
+}
+
+enum FamilyRole {
+  HEAD              // Kepala keluarga
+  SPOUSE            // Pasangan
+  CHILD             // Anak
+  MEMBER            // Anggota lain
+}
