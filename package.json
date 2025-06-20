@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "dev": "docker-compose up",
+    "build": "docker-compose build",
+    "down": "docker-compose down"
+  },
+  "name": "bani-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "react-quill": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}

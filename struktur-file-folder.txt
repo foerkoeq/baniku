@@ -1,0 +1,592 @@
+Folder PATH listing for volume New Volume
+Volume serial number is 2CEE-FF33
+D:.
+|   .env
+|   .gitignore
+|   package-lock.json
+|   package.json
+|   struktur-file-folder.txt
+|   
++---backend
+|   |   .babelrc
+|   |   .env
+|   |   .env.migrate
+|   |   .env.test
+|   |   .gitignore
+|   |   index.js
+|   |   package-lock.json
+|   |   package.json
+|   |   tsconfig.json
+|   |   
+|   +---coverage
+|   |   |   clover.xml
+|   |   |   coverage-final.json
+|   |   |   lcov.info
+|   |   |   
+|   |   \---lcov-report
+|   |           base.css
+|   |           block-navigation.js
+|   |           favicon.png
+|   |           index.html
+|   |           prettify.css
+|   |           prettify.js
+|   |           sort-arrow-sprite.png
+|   |           sorter.js
+|   |           
+|   +---node_modules
+|   |   |   (auto generated files)
+|   |           
+|   +---prisma
+|   |   |   schema.prisma
+|   |   |   seed.ts
+|   |   |   
+|   |   \---migrations
+|   |       |   migration_lock.toml
+|   |       |   
+|   |       +---20250131085633_init
+|   |       |       migration.sql
+|   |       |       
+|   |       \---20250201145614_add_location_tables
+|   |               migration.sql
+|   |               
+|   +---src
+|   |   |   index.js
+|   |   |   
+|   |   +---config
+|   |   |       rateLimiter.js
+|   |   |       redis.js
+|   |   |       upload.js
+|   |   |       
+|   |   +---controllers
+|   |   |       authController.js
+|   |   |       baniController.js
+|   |   |       eventController.js
+|   |   |       locationController.js
+|   |   |       notificationController.js
+|   |   |       personController.js
+|   |   |       photoController.js
+|   |   |       
+|   |   +---middlewares
+|   |   |       auth.js
+|   |   |       cache.js
+|   |   |       
+|   |   +---routes
+|   |   |       authRoutes.js
+|   |   |       baniRoutes.js
+|   |   |       eventRoutes.js
+|   |   |       locationRoutes.js
+|   |   |       notificationRoutes.js
+|   |   |       personRoutes.js
+|   |   |       photoRoutes.js
+|   |   |       
+|   |   +---utils
+|   |   |       storyGenerator.js
+|   |   |       
+|   |   \---__test__
+|   |       |   auth.test.js
+|   |       |   bani.test.js
+|   |       |   person.test.js
+|   |       |   setup.js
+|   |       |   
+|   |       \---mocks
+|   |               nodemailer.mock.js
+|   |               
+|   \---uploads
+|       \---photos
+\---frontend
+    |   .editorconfig
+    |   .env.local
+    |   .eslintrc.json
+    |   .gitignore
+    |   .prettierrc
+    |   App.tsx
+    |   i18n.ts
+    |   next-env.d.ts
+    |   next.config.js
+    |   ni18n.config.ts.js
+    |   package-lock.json
+    |   package.json
+    |   postcss.config.js
+    |   README.md
+    |   tailwind.config.js
+    |   theme.config.tsx
+    |   tsconfig.json
+    |   
+    +---.next
+    |   |   (auto generated files)
+    |           
+    +---app
+    |   |   icon.png
+    |   |   layout.tsx
+    |   |   loading.tsx
+    |   |   not-found.tsx
+    |   |   
+    |   +---(auth)
+    |   |   |   layout.tsx
+    |   |   |   
+    |   |   +---auth
+    |   |   |   +---forgot-password
+    |   |   |   |       page.tsx
+    |   |   |   |       
+    |   |   |   +---login
+    |   |   |   |       page.tsx
+    |   |   |   |       
+    |   |   |   +---reset-password
+    |   |   |   |       page.tsx
+    |   |   |   |       
+    |   |   |   \---verify-code
+    |   |   |           page.tsx
+    |   |   |           
+    |   |   \---pages
+    |   |       +---coming-soon-boxed
+    |   |       |       page.tsx
+    |   |       |       
+    |   |       +---contact-us-cover
+    |   |       |       page.tsx
+    |   |       |       
+    |   |       +---error404
+    |   |       |       page.tsx
+    |   |       |       
+    |   |       +---error500
+    |   |       |       page.tsx
+    |   |       |       
+    |   |       +---error503
+    |   |       |       page.tsx
+    |   |       |       
+    |   |       \---maintenence
+    |   |               page.tsx
+    |   |               
+    |   +---(defaults)
+    |   |   |   layout.tsx
+    |   |   |   metadata.ts
+    |   |   |   page.tsx
+    |   |   |   
+    |   |   +---profile
+    |   |   |       page.tsx
+    |   |   |       
+    |   |   \---settings
+    |   |           page.tsx
+    |   |           
+    |   \---(main)
+    |       |   layout.tsx
+    |       |   
+    |       +---bani-story
+    |       |       page.tsx
+    |       |       
+    |       +---events
+    |       |       page.tsx
+    |       |       
+    |       +---family-tree
+    |       |   |   page.tsx
+    |       |   |   
+    |       |   +---add-person
+    |       |   |       page.tsx
+    |       |   |       
+    |       |   \---[id]
+    |       |       \---edit
+    |       |               page.tsx
+    |       |               
+    |       +---help
+    |       |       page.tsx
+    |       |       
+    |       \---persons-data
+    |               page.tsx
+    |               
+    +---components
+    |   |   dropdown.tsx
+    |   |   ErrorBoundary.tsx
+    |   |   portals.tsx
+    |   |   
+    |   +---auth
+    |   |       components-auth-forgot-password-form.tsx
+    |   |       components-auth-login-form.tsx
+    |   |       components-auth-reset-password-form.tsx
+    |   |       components-auth-verify-code-form.tsx
+    |   |       
+    |   +---bani
+    |   |       BaniLevelSelector.tsx
+    |   |       ChildCard.tsx
+    |   |       ChildrenGrid.tsx
+    |   |       StoryCard.tsx
+    |   |       
+    |   +---book
+    |   |       BookCover.tsx
+    |   |       BookPage.tsx
+    |   |       
+    |   +---events
+    |   |       CommitteeSection.tsx
+    |   |       EventAlerts.tsx
+    |   |       EventCalendar.tsx
+    |   |       EventDetailsSection.tsx
+    |   |       EventFormModal.tsx
+    |   |       types.ts
+    |   |       
+    |   +---family-tree
+    |   |   |   FamilyTree.tsx
+    |   |   |   MiniMap.tsx
+    |   |   |   TreeNode.tsx
+    |   |   |   types.ts
+    |   |   |   
+    |   |   \---hooks
+    |   |           useCenteredTree.tsx
+    |   |           usePan.tsx
+    |   |           useZoom.tsx
+    |   |           
+    |   +---forms
+    |   |   |   ChildernForm.tsx
+    |   |   |   DatePicker.tsx
+    |   |   |   FileUpload.tsx
+    |   |   |   InputField.tsx
+    |   |   |   LocationSelect.tsx
+    |   |   |   MaskedInput.tsx
+    |   |   |   NumberInput.tsx
+    |   |   |   PersonWizard.tsx
+    |   |   |   Select.tsx
+    |   |   |   SpouseForm.tsx
+    |   |   |   StoryEditor.tsx
+    |   |   |   wizard.tsx
+    |   |   |   
+    |   |   \---wizards
+    |   |           Step1Form.tsx
+    |   |           Step2Form.tsx
+    |   |           Step3Form.tsx
+    |   |           
+    |   +---help
+    |   |       Contact.tsx
+    |   |       Faq.tsx
+    |   |       VideoTutorial.tsx
+    |   |       
+    |   +---icon
+    |   |   |   icon-airplay.tsx
+    |   |   |   icon-archive.tsx
+    |   |   |   icon-arrow-backward.tsx
+    |   |   |   icon-arrow-forward.tsx
+    |   |   |   icon-arrow-left.tsx
+    |   |   |   icon-arrow-right.tsx
+    |   |   |   icon-arrow-wave-left-up.tsx
+    |   |   |   icon-at.tsx
+    |   |   |   icon-award.tsx
+    |   |   |   icon-bar-chart.tsx
+    |   |   |   icon-bell-bing.tsx
+    |   |   |   icon-bell.tsx
+    |   |   |   icon-binance.tsx
+    |   |   |   icon-bitcoin.tsx
+    |   |   |   icon-bolt.tsx
+    |   |   |   icon-book.tsx
+    |   |   |   icon-bookmark.tsx
+    |   |   |   icon-box.tsx
+    |   |   |   icon-calendar.tsx
+    |   |   |   icon-camera.tsx
+    |   |   |   icon-caret-down.tsx
+    |   |   |   icon-carets-down.tsx
+    |   |   |   icon-cash-banknotes.tsx
+    |   |   |   icon-chart-square.tsx
+    |   |   |   icon-chat-dot.tsx
+    |   |   |   icon-chat-dots.tsx
+    |   |   |   icon-chat-notification.tsx
+    |   |   |   icon-checks.tsx
+    |   |   |   icon-chevron-down.tsx
+    |   |   |   icon-chevron-right.tsx
+    |   |   |   icon-chrome.tsx
+    |   |   |   icon-circle-check.tsx
+    |   |   |   icon-clipboard-text.tsx
+    |   |   |   icon-clock.tsx
+    |   |   |   icon-cloud-download.tsx
+    |   |   |   icon-code.tsx
+    |   |   |   icon-coffee.tsx
+    |   |   |   icon-copy.tsx
+    |   |   |   icon-cpu-bolt.tsx
+    |   |   |   icon-credit-card.tsx
+    |   |   |   icon-desktop.tsx
+    |   |   |   icon-dollar-sign-circle.tsx
+    |   |   |   icon-dollar-sign.tsx
+    |   |   |   icon-download.tsx
+    |   |   |   icon-dribbble.tsx
+    |   |   |   icon-droplet.tsx
+    |   |   |   icon-edit.tsx
+    |   |   |   icon-ethereum.tsx
+    |   |   |   icon-eye-off.tsx
+    |   |   |   icon-eye.tsx
+    |   |   |   icon-facebook-circle.tsx
+    |   |   |   icon-facebook.tsx
+    |   |   |   icon-file.tsx
+    |   |   |   icon-folder-minus.tsx
+    |   |   |   icon-folder-plus.tsx
+    |   |   |   icon-folder.tsx
+    |   |   |   icon-gallery.tsx
+    |   |   |   icon-github.tsx
+    |   |   |   icon-globe.tsx
+    |   |   |   icon-google.tsx
+    |   |   |   icon-heart.tsx
+    |   |   |   icon-help-circle.tsx
+    |   |   |   icon-home.tsx
+    |   |   |   icon-horizontal-dots.tsx
+    |   |   |   icon-inbox.tsx
+    |   |   |   icon-info-circle.tsx
+    |   |   |   icon-info-hexagon.tsx
+    |   |   |   icon-info-triangle.tsx
+    |   |   |   icon-instagram.tsx
+    |   |   |   icon-laptop.tsx
+    |   |   |   icon-layout-grid.tsx
+    |   |   |   icon-layout.tsx
+    |   |   |   icon-link.tsx
+    |   |   |   icon-linkedin.tsx
+    |   |   |   icon-list-check.tsx
+    |   |   |   icon-litecoin.tsx
+    |   |   |   icon-loader.tsx
+    |   |   |   icon-lock-dots.tsx
+    |   |   |   icon-lock.tsx
+    |   |   |   icon-login.tsx
+    |   |   |   icon-logout.tsx
+    |   |   |   icon-mail-dot.tsx
+    |   |   |   icon-mail.tsx
+    |   |   |   icon-map-pin.tsx
+    |   |   |   icon-menu.tsx
+    |   |   |   icon-message-dots.tsx
+    |   |   |   icon-message.tsx
+    |   |   |   icon-message2.tsx
+    |   |   |   icon-messages-dot.tsx
+    |   |   |   icon-microphone-off.tsx
+    |   |   |   icon-minus-circle.tsx
+    |   |   |   icon-minus.tsx
+    |   |   |   icon-mood-smile.tsx
+    |   |   |   icon-moon.tsx
+    |   |   |   icon-multiple-forward-right.tsx
+    |   |   |   icon-netflix.tsx
+    |   |   |   icon-notes-edit.tsx
+    |   |   |   icon-notes.tsx
+    |   |   |   icon-open-book.tsx
+    |   |   |   icon-paperclip.tsx
+    |   |   |   icon-pencil-paper.tsx
+    |   |   |   icon-pencil.tsx
+    |   |   |   icon-phone-call.tsx
+    |   |   |   icon-phone.tsx
+    |   |   |   icon-play-circle.tsx
+    |   |   |   icon-plus-circle.tsx
+    |   |   |   icon-plus.tsx
+    |   |   |   icon-printer.tsx
+    |   |   |   icon-refresh.tsx
+    |   |   |   icon-restore.tsx
+    |   |   |   icon-router.tsx
+    |   |   |   icon-safari.tsx
+    |   |   |   icon-save.tsx
+    |   |   |   icon-search.tsx
+    |   |   |   icon-send.tsx
+    |   |   |   icon-server.tsx
+    |   |   |   icon-settings.tsx
+    |   |   |   icon-share.tsx
+    |   |   |   icon-shopping-bag.tsx
+    |   |   |   icon-shopping-cart.tsx
+    |   |   |   icon-solana.tsx
+    |   |   |   icon-square-check.tsx
+    |   |   |   icon-square-rotated.tsx
+    |   |   |   icon-star.tsx
+    |   |   |   icon-sun.tsx
+    |   |   |   icon-tag.tsx
+    |   |   |   icon-tether.tsx
+    |   |   |   icon-thumb-up.tsx
+    |   |   |   icon-trash-lines.tsx
+    |   |   |   icon-trash.tsx
+    |   |   |   icon-trending-up.tsx
+    |   |   |   icon-twitter.tsx
+    |   |   |   icon-txt-file.tsx
+    |   |   |   icon-user-plus.tsx
+    |   |   |   icon-user.tsx
+    |   |   |   icon-users-group.tsx
+    |   |   |   icon-users.tsx
+    |   |   |   icon-video.tsx
+    |   |   |   icon-wheel.tsx
+    |   |   |   icon-x-circle.tsx
+    |   |   |   icon-x.tsx
+    |   |   |   icon-zip-file.tsx
+    |   |   |   
+    |   |   \---menu
+    |   |           icon-menu-apps.tsx
+    |   |           icon-menu-authentication.tsx
+    |   |           icon-menu-calendar.tsx
+    |   |           icon-menu-charts.tsx
+    |   |           icon-menu-chat.tsx
+    |   |           icon-menu-components.tsx
+    |   |           icon-menu-contacts.tsx
+    |   |           icon-menu-dashboard.tsx
+    |   |           icon-menu-datatables.tsx
+    |   |           icon-menu-documentation.tsx
+    |   |           icon-menu-drag-and-drop.tsx
+    |   |           icon-menu-elements.tsx
+    |   |           icon-menu-font-icons.tsx
+    |   |           icon-menu-forms.tsx
+    |   |           icon-menu-invoice.tsx
+    |   |           icon-menu-mailbox.tsx
+    |   |           icon-menu-more.tsx
+    |   |           icon-menu-notes.tsx
+    |   |           icon-menu-pages.tsx
+    |   |           icon-menu-scrumboard.tsx
+    |   |           icon-menu-tables.tsx
+    |   |           icon-menu-todo.tsx
+    |   |           icon-menu-users.tsx
+    |   |           icon-menu-widgets.tsx
+    |   |           
+    |   +---layouts
+    |   |       content-animation.tsx
+    |   |       footer.tsx
+    |   |       header.tsx
+    |   |       loading.tsx
+    |   |       main-container.tsx
+    |   |       overlay.tsx
+    |   |       provider-component.tsx
+    |   |       scroll-to-top.tsx
+    |   |       setting.tsx
+    |   |       sidebar.tsx
+    |   |       
+    |   +---modals
+    |   |       PrivacyPolicyModal.tsx
+    |   |       UnsavedChangesModal.tsx
+    |   |       
+    |   +---profile
+    |   |       InfoItem.tsx
+    |   |       ProfileSection.tsx
+    |   |       
+    |   +---settings
+    |   |       NotificationTab.tsx
+    |   |       ProfileTab.tsx
+    |   |       SecurityTab.tsx
+    |   |       
+    |   +---tables
+    |   |       PersonDataTable.tsx
+    |   |       
+    |   +---ui
+    |   |       alert.tsx
+    |   |       breadcrumb.tsx
+    |   |       button.tsx
+    |   |       Carousel.tsx
+    |   |       CookieConsent.tsx
+    |   |       Counter.tsx
+    |   |       FamilyImage.tsx
+    |   |       Modal.tsx
+    |   |       OrnamentalDivider.tsx
+    |   |       ProfileImage.tsx
+    |   |       Sweetalert.tsx
+    |   |       toast.tsx
+    |   |       Tooltip.tsx
+    |   |       
+    |   \---widgets
+    |           ActivityFeedWidget.tsx
+    |           BaseWidget.tsx
+    |           DemographicsWidget.tsx
+    |           DraggableGrid.tsx
+    |           FamilyStatsWidget.tsx
+    |           PopularStoriesWidget.tsx
+    |           QuickActionWidget.tsx
+    |           SortableItem.tsx
+    |           TrafficWidget.tsx
+    |           UpcomingBirthdaysWidget.tsx
+    |           UpcomingEventsWidget.tsx
+    |           UserStatsWidget.tsx
+    |           
+    +---data
+    |       helpData.ts
+    |       
+    +---hooks
+    |       useActivities.ts
+    |       useDemographics.ts
+    |       useEventManagement.ts
+    |       useFamilystats.ts
+    |       usePopularStories.ts
+    |       useRole.ts
+    |       useTrafficStats.ts
+    |       useUnsavedChanges.ts
+    |       useUpcomingBirthdays.ts
+    |       useUpcomingEvents.ts
+    |       useUserStats.ts
+    |       
+    +---lib
+    |       axios.ts
+    |       
+    +---node_modules
+    |   |   (auto generated files)
+    |           
+    +---public
+    |   |   demo-prepare.html
+    |   |   favicon.png
+    |   |   
+    |   +---assets
+    |   |   +---fonts
+    |   |   |       Amiri-Regular.ttf
+    |   |   |       
+    |   |   \---images
+    |   |       |   01.jpg
+    |   |       |   auth-cover.svg
+    |   |       |   checked.svg
+    |   |       |   close.svg
+    |   |       |   coming-soon.svg
+    |   |       |   custom-swal.svg
+    |   |       |   family.png
+    |   |       |   features_overview.svg
+    |   |       |   file-preview.svg
+    |   |       |   logo.svg
+    |   |       |   map-dark.svg
+    |   |       |   map.svg
+    |   |       |   menu-heade.jpg
+    |   |       |   profile-16.jpeg
+    |   |       |   profile-34.jpeg
+    |   |       |   profile.png
+    |   |       |   settings-dark.svg
+    |   |       |   settings-light.svg
+    |   |       |   user-profile.jpeg
+    |   |       |   
+    |   |       +---auth
+    |   |       |       bg-gradient.png
+    |   |       |       coming-soon-cover.svg
+    |   |       |       coming-soon-object1.png
+    |   |       |       coming-soon-object2.png
+    |   |       |       coming-soon-object3.png
+    |   |       |       contact-us.svg
+    |   |       |       login.svg
+    |   |       |       logo-white.svg
+    |   |       |       map.png
+    |   |       |       polygon-object.svg
+    |   |       |       register.svg
+    |   |       |       reset-password.svg
+    |   |       |       unlock.svg
+    |   |       |       user.png
+    |   |       |       
+    |   |       +---error
+    |   |       |       404-dark.svg
+    |   |       |       404-light.svg
+    |   |       |       500-dark.svg
+    |   |       |       500-light.svg
+    |   |       |       503-dark.svg
+    |   |       |       503-light.svg
+    |   |       |       maintenence-dark.svg
+    |   |       |       maintenence-light.svg
+    |   |       |       
+    |   |       \---flags
+    |   |               EN.svg
+    |   |               
+    |   \---locales
+    |           en.json
+    |           
+    +---store
+    |       index.tsx
+    |       themeConfigSlice.tsx
+    |       userSlice.ts
+    |       
+    +---styles
+    |       animate.css
+    |       arabic.css
+    |       book.css
+    |       calendar.css
+    |       tailwind.css
+    |       
+    +---types
+    |       activity.ts
+    |       bani.ts
+    |       family.ts
+    |       
+    \---utils
+            baniHelpers.ts
+            export.ts
+            format.ts
+            person.ts
+            validation.ts
+            
