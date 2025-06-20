@@ -1,0 +1,61 @@
+/* start of frontend/styles/calendar.css */
+.calendar-wrapper {
+  .fc {
+    @apply h-full;
+  }
+
+  .fc .fc-toolbar {
+    @apply flex-col gap-4 sm:flex-row;
+  }
+
+  .fc .fc-toolbar.fc-header-toolbar {
+    @apply mb-4;
+  }
+
+  .fc .fc-toolbar-title {
+    @apply text-base sm:text-lg font-semibold;
+  }
+
+  .fc .fc-button-primary {
+    @apply bg-primary border-primary hover:bg-primary/90 hover:border-primary/90 focus:bg-primary/90 focus:border-primary/90 active:bg-primary/80 active:border-primary/80;
+  }
+
+  .fc .fc-button-primary:not(:disabled).fc-button-active,
+  .fc .fc-button-primary:not(:disabled):active {
+    @apply bg-primary/80 border-primary/80 shadow-none;
+  }
+
+  .fc .fc-daygrid-day.fc-day-today {
+    @apply bg-primary/10 dark:bg-primary/5;
+  }
+
+  .fc .fc-daygrid-day-number,
+  .fc .fc-col-header-cell-cushion {
+    @apply text-gray-700 dark:text-gray-300;
+  }
+
+  .fc .fc-event {
+    @apply cursor-pointer border-none shadow-sm;
+  }
+
+  .fc .fc-event-time {
+    @apply text-xs;
+  }
+
+  .fc .fc-event-title {
+    @apply text-sm font-medium;
+  }
+
+  .fc .fc-list-event-time {
+    @apply text-xs text-gray-600 dark:text-gray-400;
+  }
+
+  .fc .fc-list-event-title {
+    @apply text-sm;
+  }
+
+  .fc .fc-list-table .fc-list-event {
+    @apply hover:bg-gray-50 dark:hover:bg-gray-800;
+  }
+}
+/* end of frontend/styles/calendar.css */

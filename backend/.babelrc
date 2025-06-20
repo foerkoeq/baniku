@@ -1,0 +1,14 @@
+// start of backend/.babelrc
+{
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  }
+  // end of backend/.babelrc

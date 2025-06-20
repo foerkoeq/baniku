@@ -1,0 +1,270 @@
+/* start of frontend/styles/book.css */
+/* Styling umum untuk kontainer buku */
+.book-container {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    background-color: transparent;
+    margin: 20px auto;
+    position: relative;
+    transition: all 0.5s ease;
+}
+
+/* Fix untuk kontainer StPageFlip */
+.stf__parent {
+    overflow: visible !important;
+}
+
+.stf__block {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.stf__wrapper {
+    perspective: 2000px !important;
+}
+
+/* Styling untuk setiap halaman */
+.page {
+    background-color: #fcfaf7;
+    color: #333;
+    border: solid 1px #d9c9a3;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+/* Peningkatan untuk efek flip halaman */
+.stf__item {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Styling khusus untuk halaman kiri */
+.page.--left {
+    border-right: 0;
+    box-shadow: inset -10px 0 30px -10px rgba(0, 0, 0, 0.4);
+}
+
+/* Styling khusus untuk halaman kanan */
+.page.--right {
+    border-left: 0;
+    box-shadow: inset 10px 0 30px -10px rgba(0, 0, 0, 0.4);
+}
+
+/* Styling untuk halaman hardcover */
+.page[data-density="hard"] {
+    background-color: #efe8d6;
+    border: solid 1px #8a7d63;
+}
+
+/* Cover depan dan belakang */
+.page.page-cover {
+    background-color: #8a5a24;
+    color: #f0e9d9;
+    border: solid 1px #613e18;
+}
+
+/* Cover depan */
+.page.page-cover.page-cover-top {
+    box-shadow: 
+      inset 0px 0 35px 0px rgba(36, 10, 3, 0.6),
+      -5px 5px 15px 0px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(145deg, #8a5a24 0%, #6b4115 100%);
+}
+
+/* Cover belakang */
+.page.page-cover.page-cover-bottom {
+    box-shadow: 
+      inset 0px 0 35px 0px rgba(36, 10, 3, 0.6),
+      5px 5px 15px 0px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(215deg, #8a5a24 0%, #6b4115 100%);
+}
+
+/* Konten dalam setiap halaman */
+.page .page-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 15px;
+    box-sizing: border-box;
+    background-image: 
+      radial-gradient(rgba(240, 233, 217, 0.3) 15%, transparent 16%),
+      radial-gradient(rgba(240, 233, 217, 0.3) 15%, transparent 16%);
+    background-size: 10px 10px;
+    background-position: 0 0, 5px 5px;
+    overflow: hidden;
+}
+
+/* Efek bayangan selama flipping */
+.stf__shadow {
+    background: linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 10%, rgba(0,0,0,0.05) 100%) !important;
+    opacity: 0.8 !important;
+}
+
+/* Bayangan untuk membuat efek 3D pada buku */
+.book-shadow {
+    position: absolute;
+    width: calc(100% + 60px);
+    height: calc(100% + 40px);
+    top: -20px;
+    left: -30px;
+    background: transparent;
+    box-shadow: 0 45px 100px rgba(0, 0, 0, 0.4);
+    z-index: -10;
+    border-radius: 5px;
+}
+
+/* Punggung buku untuk tampilan landscape */
+.book-spine {
+    position: absolute;
+    top: 0;
+    left: -15px;
+    width: 35px;
+    height: 100%;
+    background: linear-gradient(to right,
+      #412c17 0%,
+      #8a5a24 15%,
+      #6b4115 50%,
+      #8a5a24 85%,
+      #412c17 100%
+    );
+    border-radius: 3px 0 0 3px;
+    box-shadow: 
+      inset -5px 0 20px rgba(0, 0, 0, 0.2),
+      -10px 0 15px -5px rgba(0, 0, 0, 0.4);
+    z-index: -5;
+    transform-origin: right;
+}
+
+/* Footer halaman */
+.page-footer {
+    font-family: "Times New Roman", serif;
+    color: #8a7d63;
+    font-size: 0.8rem;
+    text-align: center;
+    padding-top: 10px;
+    margin-top: auto;
+}
+
+/* Font untuk teks arab */
+@font-face {
+    font-family: 'Amiri';
+    src: url('/assets/fonts/Amiri-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.font-arabic {
+    font-family: 'Amiri', serif;
+    font-size: 1.5rem;
+    line-height: 2.2;
+    direction: rtl;
+    text-align: center;
+}
+
+/* Efek kertas tua */
+.page:not(.page-cover):before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/paper-texture.png');
+    background-size: cover;
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+/* Dekorasi untuk pojok halaman */
+.page:not(.page-cover):after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.05) 50%);
+    border-radius: 0 0 5px 0;
+    pointer-events: none;
+}
+
+/* Menambahkan efek lipatan halaman */
+.page-fold {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.03) 50%);
+    border-radius: 0 0 0 30px;
+    border-top: 1px solid rgba(0,0,0,0.03);
+    border-left: 1px solid rgba(0,0,0,0.03);
+    box-shadow: -2px 2px 5px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.page:hover .page-fold {
+    width: 40px;
+    height: 40px;
+}
+
+/* Styling untuk mode gelap */
+.dark .page:not(.page-cover) {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+.dark .page:not(.page-cover):before {
+    opacity: 0.05;
+}
+
+.dark .page-footer {
+    color: #aaa;
+}
+
+.dark .page.--left {
+    box-shadow: inset -10px 0 30px -10px rgba(0, 0, 0, 0.7);
+}
+
+.dark .page.--right {
+    box-shadow: inset 10px 0 30px -10px rgba(0, 0, 0, 0.7);
+}
+
+/* Responsivitas untuk perangkat kecil */
+@media (max-width: 768px) {
+    .book-container {
+        margin: 10px auto;
+    }
+    
+    .book-shadow {
+        width: calc(100% + 40px);
+        height: calc(100% + 30px);
+        top: -15px;
+        left: -20px;
+    }
+    
+    .page .page-content {
+        padding: 10px;
+    }
+    
+    .font-arabic {
+        font-size: 1.2rem;
+        line-height: 2;
+    }
+}
+
+/* Responsivitas untuk mode portrait */
+@media (max-height: 600px) {
+    .book-container {
+        margin: 5px auto;
+    }
+    
+    .page .page-content {
+        padding: 8px;
+    }
+}
+/* end of frontend/styles/book.css */
